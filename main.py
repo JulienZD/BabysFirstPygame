@@ -10,7 +10,7 @@ class App:
 
     def on_init(self):
         pygame.init()
-        self._display_surf = pygame.display.set_mode(self.size, pygame.HWSURFACE | pygame.DOUBLEBUF)
+        self._display_surf = pygame.display.set_mode(self.size, pygame.SWSURFACE)
         self._running = True
 
     def on_event(self, event):
@@ -27,7 +27,7 @@ class App:
         pygame.quit()
 
     def on_execute(self):
-        if not self.on_init():
+        if self.on_init() == False:
             self._running = False
 
         while self._running:
